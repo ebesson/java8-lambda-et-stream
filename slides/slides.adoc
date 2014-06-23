@@ -1,0 +1,24 @@
+= Java 8 : Lambda & Streams
+Etienne BESSON
+v1.0, Juin 23, 2014
+:title: Java 8 : Lambda & Streams
+:website: http://ebesson.github.io
+:slidesurl: http://ebesson.github.io/devoxx2014
+:imagesdir: images
+:backend: dzslides
+:dzslides-style: stormy
+:dzslides-transition: fade
+:dzslides-fonts: family=Yanone+Kaffeesatz:400,700,200,300&family=Cedarville+Cursive
+:dzslides-highlight: monokai
+:source-highlighter: highlightjs
+
+[.topic.intro]
+== Objectifs
+
+
+== \\
+- Concepts
+- Mots clés
+
+[.topic.intro]
+== Agenda
