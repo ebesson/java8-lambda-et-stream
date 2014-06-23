@@ -14,11 +14,13 @@ v1.0, Juin 23, 2014
 
 [.topic.intro]
 == Objectifs
-
+* Comprendre les lambdas:
+* Mots clés
 
 == \\
-- Concepts
-- Mots clés
+* Comprendre les lambdas:
+* Mots clés
 
 [.topic.intro]
 == Agenda
+
