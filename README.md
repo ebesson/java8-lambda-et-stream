@@ -1,4 +1,6 @@
-java8_introduction_lambda_stream
+Java 8: Lambda et Stream
 ================================
 
-Java 8, Lambda et Stream : introduction
+Cette présentation se veux une introduction à deux nouvelles fonctionnalités de Java 8 :
+* Les lambdas
+* Les streams
