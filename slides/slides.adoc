@@ -12,15 +12,77 @@ v1.0, Juin 23, 2014
 :dzslides-highlight: monokai
 :source-highlighter: highlightjs
 
+== \\
+
+*Objectifs :*
+
+[.incremental]
+* Comprendre les lambdas
+* Comprendre les streams
+
+[NOTE]
+[role="speaker"]
+====
+* Bla bla
+====
+
+[.topic.source]
+== Lecture et affichage d'un entier à partir d'un fichier
+
+[source,java]
+----
+static void printIntegers(Path path) throws IOException {
+	try(BufferedReader reader = Files.newBufferedReader(path)) {
+		String line;
+		while ((line = reader.readLine()) != null) {
+		System.out.println(Double.parseDopble(line));
+	}
+}
+----
+
+[.topic.source]
+==  Lecture et affichage d'un double à partir d'un fichier
+
+[source,java]
+----
+static void printIntegers(Path path) throws IOException {
+	try(BufferedReader reader = Files.newBufferedReader(path)) {
+		String line;
+		while ((line = reader.readLine()) != null) {
+		System.out.println(Double.parseDouble(line));
+	}
+}
+----
+
 [.topic.intro]
-== Objectifs
-* Comprendre les lambdas:
-* Mots clés
+== Comment simplifier le code ?
+
+[NOTE]
+[role="speaker"]
+====
+Deux notions dans ce bout de code :
+* Code technique
+* Code fonctionnel
+Pour simplifier
+* Utiliser une inner class ?
+====
 
 == \\
-* Comprendre les lambdas:
-* Mots clés
 
-[.topic.intro]
-== Agenda
+*Utiliser une classe anonyme :*
 
+[.incremental]
+* Verbosité
+* Performance
+* Sémantique
+
+[NOTE]
+[role="speaker"]
+====
+* Verbosité
+* Performance
+* Sémantique : On veux envoyer une envoyer une expression... on cree une classe
+====
+
+[.topic.ending]
+== Questions
