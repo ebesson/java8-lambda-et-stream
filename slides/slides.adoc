@@ -17,8 +17,8 @@ v1.0, Juin 23, 2014
 *Objectifs :*
 
 [.incremental]
-* Comprendre les lambdas
-* Comprendre les streams
+* - Comprendre les lambdas
+* - Comprendre les streams
 
 [NOTE]
 [role="speaker"]
@@ -35,7 +35,7 @@ static void printIntegers(Path path) throws IOException {
 	try(BufferedReader reader = Files.newBufferedReader(path)) {
 		String line;
 		while ((line = reader.readLine()) != null) {
-		System.out.println(Double.parseDopble(line));
+		System.out.println(Double.parseDouble(line));
 	}
 }
 ----
@@ -72,17 +72,213 @@ Pour simplifier
 *Utiliser une classe anonyme :*
 
 [.incremental]
-* Verbosité
-* Performance
-* Sémantique
+* - Verbosité
+* - Performance
+* - Sémantique
 
 [NOTE]
 [role="speaker"]
 ====
 * Verbosité
-* Performance
+* Performance : Au niveau du compilateur, on crée un nouveau fichier
 * Sémantique : On veux envoyer une envoyer une expression... on cree une classe
 ====
+
+[.topic.source]
+==  Ce que l'on amerai avoir 
+
+[source,java]
+----
+static void parseLines(Path path, XXX xxx) throws IOException {
+	try(BufferedReader reader = Files.newBufferedReader(path)) {
+		String line;
+		while ((line = reader.readLine()) != null){
+			xxx(line);
+		}
+	}
+}
+
+static void printOneLine(String line) {
+	System.out.println(Integer.parseInt(line));
+}
+
+static void printIntegers(Path path) throws ... {
+	parseLines(path, ???);
+}
+----
+
+[NOTE]
+[role="speaker"]
+====
+* TODO 
+====
+
+== \\
+
+*En résumé :*
+
+[.incremental]
+* - Une fonction de type XXX : String -> void
+* - Un moyen d'appeler la fonction : Appel de xxx()
+* - Un moyen de transformer une methode en valeur : parseLines(path, &printOneLine)
+
+[.topic.intro]
+== Closure
+
+[NOTE]
+[role="speaker"]
+====
+TODO 
+====
+
+[.topic]
+== Lambda
+
+*Lambda block :*
+
+[.incremental]
+* () -> { return 0; }
+* x -> { return x; }
+* (x, y) -> { return x + y; }
+
+[.topic]
+== Lambda
+
+*Lambda expression :*
+
+[.incremental]
+* () -> 0
+* x -> x
+* (x, y) -> x + y
+
+[.topic]
+== Lambda : à retenir
+
+[.incremental]
+* - A Method Reference is a named method that can be converted to a value
+* - A lambda is an anonymous function that can be converted to a value
+
+
+[.topic]
+== A quoi ça peut servir ?
+
+[.incremental]
+* - Interface fonctionnelles
+* - Manipuler des collections
+
+
+[.topic]
+== Interface fonctionnelles
+
+[.incremental]
+* - Consumer<T> : void accept(T);  => Afficher une valeur 
+* - Function<T, R> : R apply(T); => Faire une transformation
+* - Supplier<T> : T get(); => Factory
+* - Predicate : boolean test(T); => Est ce que la propriete est vrai
+
+[.topic]
+== Manipuler des collections
+
+[.incremental]
+* - Filtrer
+* - Transformer
+* - Réduire
+
+[NOTE]
+[role="speaker"]
+====
+TODO 
+====
+
+[.topic]
+== Filtrer
+
+[source,java]
+----
+TODO
+----
+
+[.topic]
+== Transformer
+
+[source,java]
+----
+TODO
+----
+
+[.topic]
+== Réduire
+
+[source,java]
+----
+TODO
+----
+
+[.topic]
+=== Réduire : principe de l'accumulation
+
+TODO
+
+
+[.topic.intro]
+== API Stream
+
+
+[.topic]
+== API Stream : définition
+
+Nouveau package dans le JDK : java.util.stream
+
+[source,java]
+----
+public interface Stream<T> extends BaseStream<T,Stream<T>>
+----
+
+
+[.topic]
+== API Stream : définition
+
+Objet pour traiter des volumes de données :
+
+[.incremental]
+* - Definit des operations 
+* - Ne contient pas les données qu'il traite 
+* - Ne modifie jamais les données qu'il traite (source de données)
+* - Optimisation algorithmique
+
+[NOTE]
+[role="speaker"]
+====
+* - Pourquoi ne pas avoir rajouter cette notion dans l'API collection :
+* - Retrocompatibilite avec version precedente de Java
+* - SRP : Single Responsability Principe
+====
+
+
+[.topic]
+== API Stream : les opéarations 
+
+* Opération intermédiaires :
+
+[.incremental]
+* - filter
+* - map
+* => retourne un Stream<T>
+
+[.topic]
+== API Stream : les opéarations 
+
+* Opération terminales :
+
+[.incremental]
+* - collect
+* - reduce
+* - count
+* - min
+* => retourne un objet (operation qui declenche le traitement)
+
+[.topic]
+== En  attendant Java 8
 
 [.topic.ending]
 == Questions
